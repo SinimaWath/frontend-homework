@@ -28,4 +28,15 @@ QUnit.module('Тестируем функцию euclid', function () {
 		const temp = [ 80325, 55275, 8746650, 3000000, 45672375, 225, 54675 ];
 		assert.strictEqual(euclid(...[ ...temp, ...temp, ...temp, ...temp, ...temp ]), euclid(...temp));
 	});
+	QUnit.test('Функция должна отдавать undefined без аргументов', function (assert) {
+		assert.strictEqual(euclid(), undefined);
+    });
+	QUnit.test('Функция должна правильно учитывать свойство GCD(-m, n) = GCD(m,n)', function (assert) {
+		assert.strictEqual(euclid(-6,9), euclid(6,9), 'euclid(-6,9) === euclid(6,9) = 3');
+		assert.strictEqual(euclid(15, -27), euclid(-15, -27), 'euclid(15, -27) === euclid(-15, -27) = 3');
+    });
+	QUnit.test('Функция должна правильно работать, если один из аргументов равен 0', function (assert){
+		assert.strictEqual(euclid(0, 8), 8, "euclid(0, 8) === 8");
+        assert.strictEqual(euclid(10, 0), 10, "euclid(10, 0) === 10");
+    });
 });
