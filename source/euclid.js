@@ -5,19 +5,28 @@ const euclid = (...array) => {
         return undefined;
     }
     return array.reduce((gcd, curr) => {
-        if (typeof(curr) !== 'number') {
+        if (typeof(+curr) !== 'number' || isNaN(+curr)
+            || gcd === undefined) {
             return undefined;
         }
-        gcd = Math.abs(gcd);
-        curr = Math.abs(curr);
-        while (gcd !== 0 && curr !== 0) {
-            if (gcd > curr) {
-                gcd = gcd % curr;
+        const gcdOfTwo = function (a, b) {
+            a = Math.abs(a);
+            b = Math.abs(b);
+            while (a !== 0 && b !== 0) {
+                if (a > b) {
+                    a = a % b;
+                }
+                else {
+                    b = b % a;
+                }
             }
-            else {
-                curr = curr % gcd;
-            }
-        }
-        return (gcd + curr);
+            return (a + b);
+        };
+
+        return gcdOfTwo(gcd, curr);
     }, 0);
 };
+
+
+
+console.log(''+euclid('3T', '6', '9'));
