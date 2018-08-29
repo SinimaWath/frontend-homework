@@ -6,7 +6,6 @@ const euclid = (...array) => {
     }
     return array.reduce((gcd, curr) => {
         if (typeof(curr) !== 'number') {
-            console.log("Incorrect: " + " curr: " + curr + " gcd:" + gcd);
             return undefined;
         }
         gcd = Math.abs(gcd);
