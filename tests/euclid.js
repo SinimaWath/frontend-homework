@@ -43,5 +43,9 @@ QUnit.module('Тестируем функцию euclid', function () {
 		assert.strictEqual(euclid('a'), undefined, 'euclid(\'a\') === undefined');
         assert.strictEqual(euclid('a', 'b'), undefined, 'euclid(\'a\', 2) === undefined');
         assert.strictEqual(euclid('a', {}), undefined, 'euclid(\'a\', {}) === undefined');
-    })
+    });
+	QUnit.test('Функция должна работать правильно для типов, которые приводятся к number', function (assert) {
+		assert.strictEqual(euclid('3', '6'), 3, 'euclid(\'3\',\'6\') === 3');
+        assert.strictEqual(euclid(null, '6'), 6, 'euclid(null,\'6\') === 6');
+    });
 });
