@@ -36,7 +36,12 @@ QUnit.module('Тестируем функцию euclid', function () {
 		assert.strictEqual(euclid(15, -27), euclid(-15, -27), 'euclid(15, -27) === euclid(-15, -27) = 3');
     });
 	QUnit.test('Функция должна правильно работать, если один из аргументов равен 0', function (assert){
-		assert.strictEqual(euclid(0, 8), 8, "euclid(0, 8) === 8");
-        assert.strictEqual(euclid(10, 0), 10, "euclid(10, 0) === 10");
+		assert.strictEqual(euclid(0, 8), 8, 'euclid(0, 8) === 8');
+        assert.strictEqual(euclid(10, 0), 10, 'euclid(10, 0) === 10');
     });
+	QUnit.test('Функция возвращает undefined, если переданы аргументы неправильного типа', function (assert) {
+		assert.strictEqual(euclid('a'), undefined, 'euclid(\'a\') === undefined');
+        assert.strictEqual(euclid('a', 'b'), undefined, 'euclid(\'a\', 2) === undefined');
+        assert.strictEqual(euclid('a', {}), undefined, 'euclid(\'a\', {}) === undefined');
+    })
 });
