@@ -1,4 +1,5 @@
 'use strict';
+
 const euclid = (...array) => {
     if (array.length === 0) {
         return undefined;
@@ -21,6 +22,3 @@ const euclid = (...array) => {
         return (gcd + curr);
     }, 0);
 };
-
-
-// console.log(euclid('a', 2));
