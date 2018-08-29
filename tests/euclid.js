@@ -30,22 +30,22 @@ QUnit.module('Тестируем функцию euclid', function () {
 	});
 	QUnit.test('Функция должна отдавать undefined без аргументов', function (assert) {
 		assert.strictEqual(euclid(), undefined);
-    });
+	});
 	QUnit.test('Функция должна правильно учитывать свойство GCD(-m, n) = GCD(m,n)', function (assert) {
 		assert.strictEqual(euclid(-6,9), euclid(6,9), 'euclid(-6,9) === euclid(6,9) = 3');
 		assert.strictEqual(euclid(15, -27), euclid(-15, -27), 'euclid(15, -27) === euclid(-15, -27) = 3');
-    });
+	});
 	QUnit.test('Функция должна правильно работать, если один из аргументов равен 0', function (assert){
 		assert.strictEqual(euclid(0, 8), 8, 'euclid(0, 8) === 8');
-        assert.strictEqual(euclid(10, 0), 10, 'euclid(10, 0) === 10');
-    });
+		assert.strictEqual(euclid(10, 0), 10, 'euclid(10, 0) === 10');
+	});
 	QUnit.test('Функция возвращает undefined, если переданы аргументы неправильного типа', function (assert) {
 		assert.strictEqual(euclid('a'), undefined, 'euclid(\'a\') === undefined');
-        assert.strictEqual(euclid('a', 'b'), undefined, 'euclid(\'a\', 2) === undefined');
-        assert.strictEqual(euclid('a', {}), undefined, 'euclid(\'a\', {}) === undefined');
-    });
+		assert.strictEqual(euclid('a', 'b'), undefined, 'euclid(\'a\', 2) === undefined');
+		assert.strictEqual(euclid('a', {}), undefined, 'euclid(\'a\', {}) === undefined');
+	});
 	QUnit.test('Функция должна работать правильно для типов, которые приводятся к number', function (assert) {
 		assert.strictEqual(euclid('3', '6'), 3, 'euclid(\'3\',\'6\') === 3');
-        assert.strictEqual(euclid(null, '6'), 6, 'euclid(null,\'6\') === 6');
-    });
+		assert.strictEqual(euclid(null, '6'), 6, 'euclid(null,\'6\') === 6');
+	});
 });
