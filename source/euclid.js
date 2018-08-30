@@ -1,11 +1,9 @@
 'use strict';
 
 
-const isValid = function (val) {
-  return !(typeof +val !== 'number' || isNaN(+val));
-};
+const isValid = (val) => !(typeof +val !== 'number' || !isFinite(+val));
 
-const gcd = function(a, b) {
+function gcd(a, b) {
     if (!isValid(a) || !isValid(b)){
         return undefined;
     }
@@ -19,7 +17,7 @@ const gcd = function(a, b) {
     }
     return b;
 
-};
+}
 
 const euclid = (...array) => {
     if (array.length === 0) {
