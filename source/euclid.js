@@ -3,7 +3,7 @@
 
 const isValid = (val) => !(typeof +val !== 'number' || !isFinite(+val));
 
-function gcd(a, b) {
+const gcd =  (a, b) => {
     if (!isValid(a) || !isValid(b)){
         return undefined;
     }
@@ -16,8 +16,7 @@ function gcd(a, b) {
         a = tmp;
     }
     return b;
-
-}
+};
 
 const euclid = (...array) => {
     if (array.length === 0) {
